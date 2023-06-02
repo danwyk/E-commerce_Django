@@ -1,0 +1,67 @@
+{% extends 'core/base.html' %}
+
+
+{% block title %}
+    Sign up
+{% endblock%}
+
+
+{% block content %}
+    <h1>This is the sign up page</h1>
+    
+    <div class='w-1/2 my-6 mx-auto p-6 bg-gray-100 rounded-xl'>
+        <h1 class='mb-6 text-3xl'> Sign up </h1>
+        
+        {% comment %} action 用于返回页面， ‘.’ 表示返回当前页面 {% endcomment %}
+        <form method="post" action='.'>
+            {% comment %} 用于 cross page 加密 {% endcomment %}
+            {% csrf_token %}
+            {% comment %} {{ form.as_p }} {% endcomment %}
+            
+
+            <div class='mb-3'>
+                <label class='inline-block mb-2'>Username</label>
+                {{ form.username }}
+                <br>
+            </div>
+            
+            <div class='mb-3'>
+                <label class='inline-block mb-2'>Email</label>
+                {{ form.email }}
+                <br>
+            </div>
+            
+            <div class='mb-3'>
+                <label class='inline-block mb-2'>Password</label>
+                {{ form.password1 }}
+                <br>
+            </div>
+            
+            <div class='mb-3'>
+                <label class='inline-block mb-2'>Repeat password</label>
+                {{ form.password2 }}
+                <br>
+            </div>
+
+            {% comment %} 处理 form 的 error {% endcomment %}
+            {% if form.errors or form.non_field_errors %}
+                <div class='mb-3 p-6 bg-red-100 rounded-xl'>
+                    {% for field in form %}
+                        {{ field.errors }}
+                    {% endfor %}
+
+                    {{ form.non_field_errors}}
+                </div>
+            {% endif %}
+
+
+            <button class='px-8 py-4 text-lg bg-teal-500 hover:bg-zinc-500 rounded-xl text-white'>
+                Submit
+            </button>
+        </form>
+        
+
+    </div>
+{% endblock %}
+ 
+
