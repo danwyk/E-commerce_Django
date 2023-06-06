@@ -9,23 +9,56 @@
     
     {% comment %} 这里需要提供 item/ 的 url，然后要 call 的 function item:detail, 和最后的 primary key 也就是 item.id  {% endcomment %}
     
-    <div class='pb-6 grid grid-cols-4 gap-4 bg-gray-100'>
+    <div class='pb-6 grid grid-cols-4 gap-4 bg-gray-100 rounded-xl'>
+        
+        {% comment %} 这个是左边 side bar 的搜索 {% endcomment %}
         <div class='col-span-1 bg-white rounded-xl'>
-            side bar
+            <form method='get' action='{% url 'item:browse' %}'>
+                <input name='query' class='w-full px-6 py-4 border rounded-xl' type='text' value='{{ query }}' placeholder='Find a toy, furniture, or cloth ... '></input>
+                <button class='mt-6 px-6 py-3 text-lg bg-gray-400 text-white rounded-xl hover:bg-zinc-500'> Search </button>
+            </form>
+        
+        
+            <hr class='my-6'>
+            <p class='font-semibold'> Categories </p>
+
+            {% comment %} 设置 category 的 filter 和 query {% endcomment %}
+            <ul>
+                {% for category in categories %}
+                <a href="{% url 'item:browse' %}?query={{ query }}&category={{ category.id }}"> 
+                    <li class='px-2 py-2 rounded-xl hover:bg-gray-200 {% if category.id == category_id %} bg-gray-400 {% endif %}'>
+                        {{ category.name }}
+                    </li>
+                </a>
+                {% endfor %}
+            </ul>
+            
+            
+            <hr class='my-6'>
+            <p class='font-semibold'> Clear filters </p>
+            
+            {% comment %} 清除 category 的 filter 和 query {% endcomment %}
+            <ul>
+                <li>
+                    <a href='{% url 'item:browse' %}' class='mt-2 px-6 py-3 inline-block bg-yellow-500 hover:bg-yellow-700 text-lg text-white rounded-xl'> Clear </a>
+                </li>
+            </ul>
+        
         </div>
         
+        {% comment %} 右边的 item 展示 {% endcomment %}
         <div class='col-span-3'>
             <div class='grid grid-cols-3 gap-3'>
                 {% if items %}
                     {% for item in items %}
-                    <div> 
+                    <div class='hover:border-4 rounded-xl'> 
                         <a href="{% url 'item:detail' item.id %}">
                             <div>
                                 <img src='{{item.image.url}}' class='max-h-fit'>
                             </div>
                             
                             <div class='p-6 bg-white rounded-xl'>
-                                <h2 class='text-xl'>{{item.name}}</h2>
+                                <h2 class='text-xl'> {{item.name}} </h2>
                                 <p class='text-gray-500'><strong>Price: </strong> {{item.price}} </p>
                             </div>
                         </a>
@@ -33,6 +66,7 @@
                     {% endfor %}
                 {% endif %}
             </div>
+
         </div>
     
     </div>
@@ -41,11 +75,12 @@
 
 
     <div class='mt-6 px-6 py-12 bg-gray-100 rounded-xl'>
-        <h2 class='mb-12 text-2xl text-center'>Categories</h2>
+        <h2 class='mb-12 text-2xl text-center'> Categories </h2>
 
         {% comment %} 这里需要提供 item/ 的 url，然后要 call 的 function item:detail, 和最后的 primary key 也就是 item.id  {% endcomment %}
         <div class='grid grid-cols-3 gap-3'>
             {% if categories %}
+               
                 {% for category in categories %}
                     <div> 
                         <a href="#">
@@ -56,7 +91,6 @@
                             </div>
                             
                         </a>
-
                     </div>
                 {% endfor%}
             {% endif %}
