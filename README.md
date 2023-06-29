@@ -20,28 +20,28 @@ By Daniel Wang <danwyk.wang@gmail.com>
 > python manage.py runserver 8000  
 
 * #### Main Page
-![Demo](https://github.com/danwyk/E-commerce_Django/blob/main/mainPage.png)
+![Demo](https://github.com/danwyk/E-commerce_Django/blob/master/mainPage.png)
 
 * ### Browse
-![Demo](https://github.com/danwyk/E-commerce_Django/blob/main/browse.png)
+![Demo](https://github.com/danwyk/E-commerce_Django/blob/master/browse.png)
 
 * ### Check item details 1
-![Demo](https://github.com/danwyk/E-commerce_Django/blob/main/detail1.png)
+![Demo](https://github.com/danwyk/E-commerce_Django/blob/master/detail1.png)
 
 * ### Check item details 2
-![Demo](https://github.com/danwyk/E-commerce_Django/blob/main/detail2.png)
+![Demo](https://github.com/danwyk/E-commerce_Django/blob/master/detail2.png)
 
 * #### Login
-![Demo](https://github.com/danwyk/E-commerce_Django/blob/main/login.png)
+![Demo](https://github.com/danwyk/E-commerce_Django/blob/master/login.png)
 
 * #### Add an item
-![Demo](https://github.com/danwyk/E-commerce_Django/blob/main/add.png)
+![Demo](https://github.com/danwyk/E-commerce_Django/blob/master/add.png)
 
 * #### Check my items
-![Demo](https://github.com/danwyk/E-commerce_Django/blob/main/myItems.png)
+![Demo](https://github.com/danwyk/E-commerce_Django/blob/master/myItems.png)
 
 * #### Search items by category
-![Demo](https://github.com/danwyk/E-commerce_Django/blob/main/categoryFilter.png)
+![Demo](https://github.com/danwyk/E-commerce_Django/blob/master/categoryFilter.png)
 
 * #### Search items by name & description
-![Demo](https://github.com/danwyk/E-commerce_Django/blob/main/searchFilter.png)
+![Demo](https://github.com/danwyk/E-commerce_Django/blob/master/searchFilter.png)
