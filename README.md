@@ -1,7 +1,7 @@
 ## E-commerce_simulation
 
 ### Backgroud
-An E-commerce simulation in Python using Django, SQLite, HTML/CSS
+An E-commerce simulation in Python using Django, SQLite, HTML, Tailwind CSS
 
 ---
 
